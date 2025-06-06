@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunnyWaterDelivery.App", "FunnyWaterDelivery.App\FunnyWaterDelivery.App.csproj", "{A976F968-C578-4BD0-A46C-AAA89FE74E08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunnyWaterDelivery.Common", "FunnyWaterDelivery.Common\FunnyWaterDelivery.Common.csproj", "{923CE802-2AEE-4CD2-B943-DCD34C0F640C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunnyWaterDelivery.Database", "FunnyWaterDelivery.Database\FunnyWaterDelivery.Database.csproj", "{F92AA9C1-6EC2-4A76-AAE9-CA93E360EAFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{A976F968-C578-4BD0-A46C-AAA89FE74E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A976F968-C578-4BD0-A46C-AAA89FE74E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A976F968-C578-4BD0-A46C-AAA89FE74E08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{923CE802-2AEE-4CD2-B943-DCD34C0F640C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{923CE802-2AEE-4CD2-B943-DCD34C0F640C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{923CE802-2AEE-4CD2-B943-DCD34C0F640C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{923CE802-2AEE-4CD2-B943-DCD34C0F640C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F92AA9C1-6EC2-4A76-AAE9-CA93E360EAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F92AA9C1-6EC2-4A76-AAE9-CA93E360EAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F92AA9C1-6EC2-4A76-AAE9-CA93E360EAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F92AA9C1-6EC2-4A76-AAE9-CA93E360EAFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
