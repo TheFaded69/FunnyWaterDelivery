@@ -14,7 +14,14 @@ public interface IRepository<TModelType, in TKeyType>: IDisposable where TModelT
     /// </summary>
     /// <param name="key">ключ PK</param>
     /// <returns>запись</returns>
-    Task<TModelType> Get(TKeyType key);
+    TModelType Get(TKeyType key);
+    
+    /// <summary>
+    /// Получить одну запись по ключу PK
+    /// </summary>
+    /// <param name="key">ключ PK</param>
+    /// <returns>запись</returns>
+    Task<TModelType> GetAsync(TKeyType key);
     
     /// <summary>
     /// Получить список записей по списку ключей PK

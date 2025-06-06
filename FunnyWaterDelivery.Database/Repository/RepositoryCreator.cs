@@ -8,7 +8,7 @@ public class RepositoryCreator<TModelType, TKeyType>(ISessionFactory sessionFact
     public IRepository<TModelType, TKeyType> CreateRepository()
     {
         var session = sessionFactory.OpenSession();
-        return new Repository<TModelType, TKeyType>(session);
+        return new Repository<TModelType, TKeyType>(session, session.BeginTransaction());
     }
 
     public async Task<IRepository<TModelType, TKeyType>> CreateRepositoryAsync()

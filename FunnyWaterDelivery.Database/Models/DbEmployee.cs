@@ -1,4 +1,6 @@
-﻿namespace FunnyWaterDelivery.Database.Models;
+﻿using FunnyWaterDelivery.Common.Enums;
+
+namespace FunnyWaterDelivery.Database.Models;
 
 public class DbEmployee : DbEntity<Guid>
 {

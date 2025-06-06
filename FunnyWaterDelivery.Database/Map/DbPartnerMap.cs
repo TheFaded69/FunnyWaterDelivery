@@ -8,7 +8,7 @@ public class DbPartnerMap : ClassMapping<DbPartner>
 {
     public DbPartnerMap()
     {
-        Table("DbPatner");
+        Table("DbPartner");
         Id(model => model.ID, mapper => mapper.Generator(Generators.Guid));
         Property(x => x.Deleted, map =>
         {

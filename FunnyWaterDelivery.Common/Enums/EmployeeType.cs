@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 
+namespace FunnyWaterDelivery.Common.Enums;
+
 public enum EmployeeType : int
 {
     None = 0,

@@ -2,9 +2,9 @@
 
 namespace FunnyWaterDelivery.App.Views;
 
-public partial class Main : Window
+public partial class MainView : Window
 {
-    public Main()
+    public MainView()
     {
         InitializeComponent();
     }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="FunnyWaterDelivery.Database.Models"
+                   assembly="FunnyWaterDelivery.Database">
+
+    <class name="DbOrder" table="DbOrder">
+
+        <!-- ID -->
+        <id name="ID" column="Id">
+            <generator class="guid" />
+        </id>
+
+        <!-- Поля из базового класса -->
+        <property name="Deleted" column="Deleted" type="Boolean" not-null="true" />
+        <property name="CreateTime" column="CreateTime" type="DateTime" not-null="true" />
+        <property name="UpdateTime" column="UpdateTime" type="DateTime" not-null="true" />
+        
+        <!-- Поля из DbOrder -->
+        <property name="OrderDate" column="OrderDate" type="DateTime" not-null="true" />
+
+        <property name="Total" column="Total" type="Decimal" precision="18" scale="2" not-null="true" />
+
+        <!-- many-to-one: Employee -->
+        <many-to-one name="Employee" column="EmployeeId" class="DbEmployee, FunnyWaterDelivery.Database" not-null="true" fetch="join" />
+
+        <!-- many-to-one: Partner -->
+        <many-to-one name="Partner" column="PartnerId" class="DbPartner, FunnyWaterDelivery.Database" not-null="true" fetch="join" />
+
+    </class>
+</hibernate-mapping>
