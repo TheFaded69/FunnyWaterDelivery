@@ -22,6 +22,7 @@ public static class DependencyContainer
         //cfg
         services.AddSingleton(AppSettingsLoader.Load());
         
+        //todo не красиво настраивается мигратор, лучше вынести его в отдельную фабрику и тут вызывать один простой метод
         //DB
         services.AddFluentMigratorCore()
             .ConfigureRunner(runner => runner

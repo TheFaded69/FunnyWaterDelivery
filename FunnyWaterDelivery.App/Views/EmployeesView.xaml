@@ -32,20 +32,34 @@
                   SelectedItem="{Binding SelectedEmployee}"
                   SelectionMode="Single"
                   Margin="5"
+                  CanUserAddRows="False"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
+                <!-- todo вместо текст колонки можно вставить комбобокс со всеми айдишниками employee или partner для удоства редактирования
+                    для даты date picker
+                    для deleted checkbox-->
                 <DataGridTextColumn Header="ID"
                                     Binding="{Binding Id}"
                                     IsReadOnly="False"/>
-                <DataGridTextColumn Header="Удалено"
-                                    Binding="{Binding Deleted}"
-                                    IsReadOnly="False"/>
-                <DataGridTextColumn Header="Дата создания"
-                                    Binding="{Binding CreateTime}"
-                                    IsReadOnly="False"/>
-                <DataGridTextColumn Header="Дата обновления"
-                                    Binding="{Binding UpdateTime}"
-                                    IsReadOnly="False"/>
+                <DataGridCheckBoxColumn IsReadOnly="False"
+                                        Binding="{Binding Deleted}"
+                                        Header="Удалено"/>
+                <DataGridTemplateColumn Header="Дата создания"
+                                        IsReadOnly="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding CreateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Дата обновления"
+                                        IsReadOnly="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding UpdateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Имя"
                                     Binding="{Binding Name}"
                                     IsReadOnly="False"/>
@@ -55,15 +69,13 @@
                 <DataGridTextColumn Header="Отчество"
                                     Binding="{Binding Patronymic}"
                                     IsReadOnly="False"/>
-                <DataGridTextColumn Header="Тип работника"
-                                    Binding="{Binding EmployeeType, Converter={converters:EnumToStringConverter}}"
-                                    IsReadOnly="False"/>
-                <DataGridTemplateColumn Header="Тип работника">
+                <DataGridTemplateColumn Header="Тип работника"
+                                        IsReadOnly="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox Margin="5"
                                       ItemsSource="{Binding Employees}"
-                                      SelectedItem="{Binding EmployeeType, Mode=TwoWay}">
+                                      SelectedItem="{Binding EmployeeType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Converter={converters:EnumToStringConverter}}"/>
@@ -73,9 +85,14 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="День рождения"
-                                    Binding="{Binding DateOfBirth}"
-                                    IsReadOnly="False"/>
+                <DataGridTemplateColumn Header="Дата создания"
+                                        IsReadOnly="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>
