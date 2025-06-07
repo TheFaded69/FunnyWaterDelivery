@@ -38,14 +38,14 @@ public class DbOrderMap : ClassMapping<DbOrder>
         {
             map.Column("EmployeeId");
             map.Class(typeof(DbEmployee));
-            map.NotNullable(true);
+            map.NotNullable(false);
             map.Fetch(FetchKind.Join);
         });
         ManyToOne(model => model.Partner, map =>
         {
             map.Column("PartnerId");
             map.Class(typeof(DbPartner));
-            map.NotNullable(true);
+            map.NotNullable(false);
             map.Fetch(FetchKind.Join);
         });
     }

@@ -6,5 +6,5 @@ public class DbPartner : DbEntity<Guid>
     
     public virtual string INN { get; set; }
     
-    public virtual DbEmployee Curator { get; set; } 
+    public virtual DbEmployee? Curator { get; set; } 
 }

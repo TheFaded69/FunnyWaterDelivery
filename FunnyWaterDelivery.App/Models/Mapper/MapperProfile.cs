@@ -10,9 +10,17 @@ public class MapperProfile : Profile
     {
         CreateMap<DbEmployee, EmployeeRowViewModel>()
             .ReverseMap();
+        
         CreateMap<DbOrder, OrderRowViewModel>()
-            .ReverseMap();
+            .ForMember(dest => dest.EmployeeId, opt => opt.MapFrom(src => src.Employee != null ? (Guid?)src.Employee.ID : null))
+            .ForMember(dest => dest.PartnerId, opt => opt.MapFrom(src => src.Partner != null ? (Guid?)src.Partner.ID : null))
+            .ReverseMap()
+            .ForMember(dest => dest.Employee, opt => opt.MapFrom(src => src.EmployeeId.HasValue ?  new DbEmployee { ID = src.EmployeeId.Value } : null))
+            .ForMember(dest => dest.Partner, opt => opt.MapFrom(src => src.PartnerId.HasValue ?  new DbPartner { ID = src.PartnerId.Value } : null));
+        
         CreateMap<DbPartner, PartnerRowViewModel>()
-            .ReverseMap();
+            .ForMember(dest => dest.EmployeeId, opt => opt.MapFrom(src => src.Curator != null ? (Guid?)src.Curator.ID : null))
+            .ReverseMap()
+            .ForMember(dest => dest.Curator, opt => opt.MapFrom(src => src.EmployeeId.HasValue ?  new DbEmployee { ID = src.EmployeeId.Value } : null));
     }
 }

@@ -31,12 +31,13 @@ public static class DependencyContainer
         services.AddSingleton<IDataContextFactory, DataContextFactory>();
         services.AddSingleton<ISessionFactory>(provider => provider.GetRequiredService<IDataContextFactory>().CreateSessionFactory());
         services.AddScoped<ISession>(provider => provider.GetRequiredService<ISessionFactory>().OpenSession());
-        //services.AddScoped<IDataContext, DataContext>();
         services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
         services.AddScoped(typeof(IRepositoryCreator<,>), typeof(RepositoryCreator<,>));
         
         //DB service
         services.AddScoped<IEmployeeDbService, EmployeeDbService>();
+        services.AddScoped<IOrderDbService, OrderDbService>();
+        services.AddScoped<IPartnerDbService, PartnerDbService>();
         
         //Models
         services.AddSingleton(new MapperConfiguration(cfg => 
@@ -46,9 +47,15 @@ public static class DependencyContainer
         
         // ViewModels
         services.AddTransient<MainViewModel>();
-
+        services.AddTransient<OrdersViewModel>();
+        services.AddTransient<EmployeesViewModel>();
+        services.AddTransient<PartnersViewModel>();
+        
         // Views
         services.AddTransient<MainView>();
+        services.AddTransient<OrdersView>();
+        services.AddTransient<EmployeesView>();
+        services.AddTransient<PartnersView>();
         
         return services.BuildServiceProvider();
     }

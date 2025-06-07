@@ -27,7 +27,7 @@
         <!-- many-to-one: Curator -->
         <many-to-one name="Curator" column="CuratorId"
                      class="DbEmployee, FunnyWaterDelivery.Database"
-                     not-null="true"
+                     not-null="false"
                      fetch="join" />
 
     </class>

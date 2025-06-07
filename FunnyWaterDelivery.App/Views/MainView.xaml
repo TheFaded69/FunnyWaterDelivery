@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:FunnyWaterDelivery.App.Views"
         mc:Ignorable="d"
         Title="Main" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <TabControl>
+        <TabItem Header="Работники">
+            <local:EmployeesView/>
+        </TabItem>
+        <TabItem Header="Контрагенты">
+            <local:PartnersView/>
+        </TabItem>
+        <TabItem Header="Заказы">
+            <local:OrdersView/>
+        </TabItem>
+    </TabControl>
 </Window>

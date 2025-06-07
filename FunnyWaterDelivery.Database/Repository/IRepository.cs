@@ -48,6 +48,7 @@ public interface IRepository<TModelType, in TKeyType>: IDisposable where TModelT
     /// <param name="obj">запись</param>
     void Delete(TModelType obj);
     
+    
     /// <summary>
     /// Удалить безвозвратно
     /// </summary>

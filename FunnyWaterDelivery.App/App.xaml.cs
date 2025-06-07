@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using FluentMigrator.Runner;
 using FluentNHibernate;
 using FunnyWaterDelivery.App.Models.DbServices;
@@ -29,14 +30,9 @@ public partial class App : Application
         base.OnStartup(e);
         
         _serviceProvider = DependencyContainer.BuildServiceProvider();
+        Ioc.Default.ConfigureServices(_serviceProvider);
         
         RunMigrations(_serviceProvider);
-
-        var service = _serviceProvider.GetRequiredService<IEmployeeDbService>();
-        service.AddEmployee(new EmployeeRowViewModel()
-        {
-            
-        });
         
         var mainWindow = _serviceProvider.GetRequiredService<MainView>();
         mainWindow.DataContext = _serviceProvider.GetRequiredService<MainViewModel>();

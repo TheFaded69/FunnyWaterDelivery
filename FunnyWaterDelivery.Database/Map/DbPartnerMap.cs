@@ -40,7 +40,7 @@ public class DbPartnerMap : ClassMapping<DbPartner>
         {
             map.Column("CuratorId");
             map.Class(typeof(DbEmployee));
-            map.NotNullable(true);
+            map.NotNullable(false);
             map.Fetch(FetchKind.Join);
         });
     }

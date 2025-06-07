@@ -21,10 +21,10 @@
         <property name="Total" column="Total" type="Decimal" precision="18" scale="2" not-null="true" />
 
         <!-- many-to-one: Employee -->
-        <many-to-one name="Employee" column="EmployeeId" class="DbEmployee, FunnyWaterDelivery.Database" not-null="true" fetch="join" />
+        <many-to-one name="Employee" column="EmployeeId" class="DbEmployee, FunnyWaterDelivery.Database" not-null="false" fetch="join" />
 
         <!-- many-to-one: Partner -->
-        <many-to-one name="Partner" column="PartnerId" class="DbPartner, FunnyWaterDelivery.Database" not-null="true" fetch="join" />
+        <many-to-one name="Partner" column="PartnerId" class="DbPartner, FunnyWaterDelivery.Database" not-null="false" fetch="join" />
 
     </class>
 </hibernate-mapping>

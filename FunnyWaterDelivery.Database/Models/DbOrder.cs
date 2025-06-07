@@ -6,7 +6,7 @@ public class DbOrder : DbEntity<Guid>
     
     public virtual decimal Total { get; set; }
     
-    public virtual DbEmployee Employee { get; set; }
+    public virtual DbEmployee? Employee { get; set; }
     
-    public virtual DbPartner Partner { get; set; }
+    public virtual DbPartner? Partner { get; set; }
 }

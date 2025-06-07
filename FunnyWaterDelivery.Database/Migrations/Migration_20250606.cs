@@ -24,7 +24,7 @@ public class InitialCreate : Migration
             .WithColumn("Id").AsGuid().PrimaryKey()
             .WithColumn("Name").AsString(20).NotNullable()
             .WithColumn("INN").AsString(12).NotNullable()
-            .WithColumn("CuratorId").AsGuid().Nullable() // внешний ключ на DbEmployee
+            .WithColumn("CuratorId").AsGuid().Nullable()
             .WithColumn("Deleted").AsBoolean().NotNullable().WithDefaultValue(false)
             .WithColumn("CreateTime").AsDateTime().NotNullable()
             .WithColumn("UpdateTime").AsDateTime().NotNullable();
@@ -39,8 +39,8 @@ public class InitialCreate : Migration
             .WithColumn("Id").AsGuid().PrimaryKey()
             .WithColumn("OrderDate").AsDateTime().NotNullable()
             .WithColumn("Total").AsDecimal(18, 2).NotNullable()
-            .WithColumn("EmployeeId").AsGuid().NotNullable() // внешний ключ на DbEmployee
-            .WithColumn("PartnerId").AsGuid().NotNullable()  // внешний ключ на DbPartner
+            .WithColumn("EmployeeId").AsGuid().Nullable()
+            .WithColumn("PartnerId").AsGuid() .Nullable() 
             .WithColumn("Deleted").AsBoolean().NotNullable().WithDefaultValue(false)
             .WithColumn("CreateTime").AsDateTime().NotNullable()
             .WithColumn("UpdateTime").AsDateTime().NotNullable();

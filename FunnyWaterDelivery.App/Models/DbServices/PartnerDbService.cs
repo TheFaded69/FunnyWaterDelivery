@@ -1,31 +1,30 @@
 ﻿using System.Collections.ObjectModel;
 using AutoMapper;
 using FunnyWaterDelivery.App.ViewModels.RowViewModels;
-using FunnyWaterDelivery.Common.Enums;
 using FunnyWaterDelivery.Database.Models;
 using FunnyWaterDelivery.Database.Repository;
 
 namespace FunnyWaterDelivery.App.Models.DbServices;
 
-public class EmployeeDbService : IEmployeeDbService
+public class PartnerDbService : IPartnerDbService
 {
-    public EmployeeDbService(IMapper mapper, IRepositoryCreator<DbEmployee, Guid> repositoryCreator)
+    private readonly IMapper _mapper;
+    private readonly IRepositoryCreator<DbPartner, Guid> _repositoryCreator;
+
+    public PartnerDbService(IMapper mapper, IRepositoryCreator<DbPartner, Guid> repositoryCreator)
     {
         _mapper = mapper;
         _repositoryCreator = repositoryCreator;
     }
     
-    private readonly IMapper _mapper;
-    private readonly IRepositoryCreator<DbEmployee, Guid> _repositoryCreator;
-
-    public DbEmployee Create(EmployeeRowViewModel employeeRowViewModel)
+    public DbPartner Create(PartnerRowViewModel partnerRowViewModel)
     {
         try
         {
-            var employee = _mapper.Map<DbEmployee>(employeeRowViewModel);
+            var partner = _mapper.Map<DbPartner>(partnerRowViewModel);
             var repository = _repositoryCreator.CreateRepository();
-            repository.Insert(employee);
-            return employee;
+            repository.Insert(partner);
+            return partner;
         }
         catch (Exception e)
         {
@@ -34,14 +33,14 @@ public class EmployeeDbService : IEmployeeDbService
         }
     }
 
-    public DbEmployee Update(EmployeeRowViewModel employeeRowViewModel)
+    public DbPartner Update(PartnerRowViewModel partnerRowViewModel)
     {
         try
         {
-            var employee = _mapper.Map<DbEmployee>(employeeRowViewModel);
+            var partner = _mapper.Map<DbPartner>(partnerRowViewModel);
             var repository = _repositoryCreator.CreateRepository();
-            repository.Update(employee);
-            return employee;
+            repository.Update(partner);
+            return partner;
         }
         catch (Exception e)
         {
@@ -50,13 +49,13 @@ public class EmployeeDbService : IEmployeeDbService
         }
     }
 
-    public void Delete(EmployeeRowViewModel employeeRowViewModel)
+    public void Delete(PartnerRowViewModel partnerRowViewModel)
     {
         try
         {
-            var employee = _mapper.Map<DbEmployee>(employeeRowViewModel);
+            var partner = _mapper.Map<DbPartner>(partnerRowViewModel);
             var repository = _repositoryCreator.CreateRepository();
-            repository.Delete(employee);
+            repository.Delete(partner);
         }
         catch (Exception e)
         {
@@ -65,19 +64,19 @@ public class EmployeeDbService : IEmployeeDbService
         }
     }
 
-    public EmployeeRowViewModel Read(Guid id)
+    public PartnerRowViewModel Read(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public ObservableCollection<EmployeeRowViewModel> ReadAll()
+    public ObservableCollection<PartnerRowViewModel> ReadAll()
     {
         try
         {
             var repository = _repositoryCreator.CreateRepository();
-            return new ObservableCollection<EmployeeRowViewModel>(repository
+            return new ObservableCollection<PartnerRowViewModel>(repository
                 .Query
-                .Select(e => _mapper.Map<EmployeeRowViewModel>(e))
+                .Select(e => _mapper.Map<PartnerRowViewModel>(e))
                 .ToList());
                 
         }

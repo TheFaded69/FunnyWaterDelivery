@@ -41,7 +41,7 @@ public sealed class Repository<TModelType, TKeyType> : IRepository<TModelType, T
         obj.Deleted = true;
         Update(obj);
     }
-
+    
     public void PermanentDelete(TModelType obj)
     {
         _session.Delete(obj);
